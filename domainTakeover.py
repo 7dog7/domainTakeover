@@ -95,7 +95,7 @@ if __name__ == '__main__':
         if final_domain.strip():
             final_domain_list.append(final_domain)
     data = []
-    pool = ThreadPool(100, 300)
+    pool = ThreadPool(20, 300)
     pool.start(main, final_domain_list, data)
     if len(data) >0:
         with open(r'TakeoverResult.txt', 'ab+') as ff:
