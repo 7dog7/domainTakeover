@@ -63,10 +63,10 @@ def takeover(domain):
                 r = requests.get(
                     'https://checkapi.aliyun.com/check/checkdomain?domain={0}&command=&token=Y3d83b57bc8aca0f156381976a6171f4a&ua=&currency=&site=&bid=&_csrf_token=&callback=jsonp_1569557125267_14652'.format(
                         url.fld), timeout=5).text
-                if str(json.loads(re.match(".*?({.*}).*", r, re.S).group(1))['module'][0]['avail']) == '0':
-                    return False
-                else:
+                if str(json.loads(re.match(".*?({.*}).*", r, re.S).group(1))['module'][0]['avail']) == '1':
                     return True
+                else:
+                    return False
             except Exception as e:
                 print e
                 n = n + 1
